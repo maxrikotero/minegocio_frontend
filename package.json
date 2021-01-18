@@ -1,0 +1,35 @@
+{
+  "name": "minegocio_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxrikotero/minegocio_frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxrikotero/minegocio_frontend/issues"
+  },
+  "homepage": "https://github.com/maxrikotero/minegocio_frontend#readme",
+  "dependencies": {
+    "@apollo/client": "^3.3.7",
+    "graphql": "^15.4.0",
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.3"
+  }
+}
