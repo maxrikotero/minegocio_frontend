@@ -30,7 +30,6 @@ const Home = (props: any) => {
     const characters = useSelector(state => state.characters);
     const dispatch = useDispatch();
 
-    console.log(characters.list, 'as')
     const addCharacter = ( personaje : any) => {
         console.log(personaje, 'CHAR')
         dispatch({
@@ -40,7 +39,13 @@ const Home = (props: any) => {
                 name: personaje.name,
                 image: personaje.image
             }
-          });
+        });
+    }
+    const removeCharacter = ( personaje ) => {
+        dispatch({
+            type: 'REMOVE_CHARACTER',
+            data: personaje
+        });
     }
     
 
@@ -67,7 +72,7 @@ const Home = (props: any) => {
                     {characters.list.map((item: any) => {
                         return(
                             <BoxChar img={item.image} key={item.id}>
-
+                                <a onClick={()=> removeCharacter(item)}> X </a>
                             </BoxChar>
                         )
                     })}
@@ -91,6 +96,7 @@ export const BoxWrapper = styled.div`
 display:grid;
 justify-content:center;
 justify-items:center;
+
 `;
 export const ListWrapper = styled.div`
 display:grid;
@@ -103,10 +109,19 @@ display:grid;
 grid-template-columns: 1fr 1fr;
 `;
 export const BoxChar = styled.div`
+position:relative;
 width:100%;
 height:100%;
 background-image: url('${props => props.img}');
 background-size:cover;
+a{
+    color:white;
+    font-weight:600;
+    position:absolute;
+    top:1vh;
+    right:1vw;
+    cursor:pointer;
+}
 `;
 export async function getStaticProps() {
     const client = new ApolloClient({
